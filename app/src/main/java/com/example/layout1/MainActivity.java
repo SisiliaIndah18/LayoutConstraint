@@ -31,13 +31,28 @@ public class MainActivity extends AppCompatActivity {
 
                 EmailKey = "ndh1994@gmail.com";
                 PwKey = "2001";
+
                 if (EmailKey.equals(edemail.getText().toString()) && PwKey.equals(edpassword.getText().toString())){
-                    //jika login berhasil
-                    Toast s = Toast.makeText(getApplicationContext(), "Login Sukses Email Anda : " +EmailKey+ " dan Password Anda : "+PwKey+ "", Toast.LENGTH_LONG);
+                    Toast s = Toast.makeText(getApplicationContext(),
+                            "Login Sukses Email Anda : " +EmailKey+ " dan Password Anda : "+PwKey+ "", Toast.LENGTH_LONG);
                         s.show();
-                }else {
-                    //jika login gagal
-                    Toast s = Toast.makeText(getApplicationContext(), "Email / Password Salah !!", Toast.LENGTH_SHORT);
+                }
+
+                else if (!EmailKey.equals(edemail.getText().toString()) && PwKey.equals(edpassword.getText().toString())){
+                    Toast s = Toast.makeText(getApplicationContext(),
+                            "Email Salah", Toast.LENGTH_LONG);
+                    s.show();
+                }
+
+                else if (EmailKey.equals(edemail.getText().toString()) && !PwKey.equals(edpassword.getText().toString())){
+                    Toast s = Toast.makeText(getApplicationContext(),
+                            "Password Salah", Toast.LENGTH_LONG);
+                    s.show();
+                }
+
+                else if (!EmailKey.equals(edemail.getText().toString()) && !PwKey.equals(edpassword.getText().toString())){
+                    Toast s = Toast.makeText(getApplicationContext(),
+                            "Email dan Password Salah !!", Toast.LENGTH_SHORT);
                         s.show();
                 }
             }
