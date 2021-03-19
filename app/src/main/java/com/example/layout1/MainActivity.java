@@ -36,18 +36,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast s = Toast.makeText(getApplicationContext(),
                             "Login Sukses Email Anda : " +EmailKey+ " dan Password Anda : "+PwKey+ "", Toast.LENGTH_LONG);
                         s.show();
-                }
 
-                else if (!EmailKey.equals(edemail.getText().toString()) && PwKey.equals(edpassword.getText().toString())){
-                    Toast s = Toast.makeText(getApplicationContext(),
-                            "Email Salah", Toast.LENGTH_LONG);
-                    s.show();
-                }
+                    Bundle b = new Bundle();
+                    b.putString("a", EmailKey.trim());
+                    b.putString("b", PwKey.trim());
 
-                else if (EmailKey.equals(edemail.getText().toString()) && !PwKey.equals(edpassword.getText().toString())){
-                    Toast s = Toast.makeText(getApplicationContext(),
-                            "Password Salah", Toast.LENGTH_LONG);
-                    s.show();
+                    Intent intentBaru = new Intent( MainActivity.this, page2.class);
+                    intentBaru.putExtras(b);
+                    startActivity(intentBaru);
                 }
 
                 else if (!EmailKey.equals(edemail.getText().toString()) && !PwKey.equals(edpassword.getText().toString())){
